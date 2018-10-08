@@ -9,10 +9,13 @@
       </li>
     </ul>
     <div ref="refbox">REFBOX</div>
+    <div>父组件的city{{toCity}}</div>
+    <Child @showCityName="updateCity" :sendData="toCity"></Child>
   </div>
 </template>
 
 <script>
+import Child from './Child.vue'
 export default {
   name: 'news',
   data: function(){
@@ -24,7 +27,8 @@ export default {
       {
         name: '李四',age: '30'
       }
-      ]
+      ],
+      toCity:"嘉兴"
     }
   },
   mounted() {
@@ -37,7 +41,14 @@ export default {
     },
     changeText:function(){
       console.log("事件触发");
+    },
+    updateCity(data){
+      this.toCity = data;
+      console.log("子组件传递过来的值"+this.toCity);
     }
+  },
+  components: {
+    Child
   }
 }
 </script>
