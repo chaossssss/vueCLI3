@@ -10,6 +10,14 @@
 			<button @click="decrement">-</button>
 		</p>
     </div>
+    <div class="swiper-container">
+    	<div class="swiper-wrapper">
+    		<div class="swiper-slide">slide1</div>
+    		<div class="swiper-slide">slide2</div>
+    		<div class="swiper-slide">slide3</div>
+    	</div>
+    	<div class="swiper-pagination"></div>
+    </div>
   </div>
 </template>
 
@@ -19,12 +27,19 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import NewsText from '@/components/news/NewsText'
 import store from '../store.js'
+import Swiper from 'swiper'
 export default {
   name: 'home',
   data: function(){
   	return {
   		
   	}
+  },
+  mounted(){
+  	new Swiper ('.swiper-container',{
+  		loop:true,
+  		pagination: '.swiper-pagination',
+  	})
   },
   computed: {
   	count () {
@@ -45,3 +60,11 @@ export default {
   }
 }
 </script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.swiper-container {
+	width: 500px;
+	height: 300px;
+	margin: 20px auto;
+}
+</style>
