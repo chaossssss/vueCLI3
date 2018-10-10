@@ -30,7 +30,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "eslint-disable-next-line": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

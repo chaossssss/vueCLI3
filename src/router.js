@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import News from './components/news/News'
+import Other from './views/Other.vue'
+import ChildLinkOne from './components/otherChild/ChildLinkOne.vue'
+import ChildLinkTwo from './components/otherChild/ChildLinkTwo.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -25,6 +28,32 @@ export default new Router({
       path: '/news',
       name: 'news',
       component: News
+    },
+    {
+      path: '/faker/:Id',
+      redirect: '/other/:Id'
+    },
+    {
+      path: '/other/:Id',
+      name: 'other',
+      component: Other,
+      children: [
+        {
+          path: 'childLinkOne/:lprops',
+          components: {
+            a: ChildLinkOne
+          },
+          props: {
+            a:true
+          }
+        },
+        {
+          path: 'childLinkTwo',
+          components: {
+            b: ChildLinkTwo
+          }
+        }
+      ]
     }
   ]
 })
