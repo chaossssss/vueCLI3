@@ -5,7 +5,9 @@
 		<div @click="changeParam(4)">修改路由参数</div>
 		<router-link to="/other/7/childLinkOne/sss">child1</router-link> |
 		<router-link to="/other/8/childLinkTwo">child2</router-link> 
-		<router-view class="left" name="a"></router-view>
+		<transition name="fade">
+			<router-view class="left" name="a"></router-view>
+		</transition>
 		<router-view class="right" name="b"></router-view>
 	</div>
 </template>
@@ -50,5 +52,11 @@ export default {
 .left {
 	width: 220px;
 	height: 400px;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
