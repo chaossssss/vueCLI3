@@ -7,7 +7,9 @@
 				:key="item.name"
 				:label="item.title"
 			>
-				
+				<div v-for="(value, key) in weatherData">
+					{{key}}:{{value}}
+				</div>
 			</el-tab-pane>
 		</el-tabs>
 	</div>
@@ -39,6 +41,7 @@ export default {
   		}
   		],
   		CityCode: '101010100',
+  		weatherData:[]
   	}
   },
   mounted() {
@@ -46,7 +49,7 @@ export default {
   },
   methods: {
   	handleClick(tab,event){
-  		console.log(tab);
+  		// console.log(tab);
   		this.CityCode = tab.$attrs.value;
 
   		this.getData(this.CityCode);
@@ -56,7 +59,9 @@ export default {
   		this.$http
   		.get('api/data/sk/'+code+'.html')
   		.then(function(response){
-  			console.log(response.data);
+  			var jsonString = response.data.weatherinfo;
+  			self.weatherData = jsonString;
+  			console.log(self.weatherData);
   		})
   	}
   }
