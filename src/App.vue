@@ -6,7 +6,8 @@
       <router-link to="/about">About</router-link> |
       <router-link :to="{ name: 'other', params:{ Id:3 }, query:{plan: 'private'}}">Other</router-link> |
       <router-link to="/other/10">Other 两种写法</router-link> |
-      <router-link to="/faker/11">重定向的路由</router-link>
+      <router-link to="/faker/11">重定向的路由</router-link> |
+      <router-link to="/weather">nav</router-link>
     </div>
     <router-view/>
   </div>

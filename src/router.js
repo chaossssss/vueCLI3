@@ -5,6 +5,7 @@ import News from './components/news/News'
 import Other from './views/Other.vue'
 import ChildLinkOne from './components/otherChild/ChildLinkOne.vue'
 import ChildLinkTwo from './components/otherChild/ChildLinkTwo.vue'
+import Weather from './views/Weather.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -54,6 +55,11 @@ export default new Router({
           }
         }
       ]
+    },
+    {
+      path: '/weather',
+      name: 'weather',
+      component: Weather
     }
   ]
 })
